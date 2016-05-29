@@ -191,6 +191,7 @@ class SenseAndRecord:
         return (temp_c, humidity)
 
     def _get_system_data(self, cursor, data_point_id):
+        print("System Info:")
         try:
             # Get SOC Temp
             system_temp_file = open("/sys/class/thermal/thermal_zone0/temp", "r")
@@ -221,17 +222,18 @@ class SenseAndRecord:
             print("CRITICAL: Unable to insert system temperature data. ", e)
 
     def _acquire_image(self, cursor, data_point_id, timestamp):
+        print("Camera:")
         try:
-            print("Snapping Image...", end="")
+            print("    Snapping Image...", end="")
             prefix = time.strftime("%Y_%m_%d_%H_%M_%S")
             filename = '%s/imgs/img_%02d_%s.jpg' % (self._output_dir, timestamp, prefix)
             self._camera.capture_sequence([filename])
             cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
-            print("           [OK]\n")
+            print("       [OK]\n")
             print("." * 80)
             self._last_image_taken = time.mktime(time.localtime())
         except Exception as e:
-            print("           [FAILED]\n")
+            print("       [FAILED]\n")
             print("CRITICAL: Camera Read Error - ", e)
             print("." * 80)
 
