@@ -210,7 +210,7 @@ class SenseAndRecord:
             df_output = subprocess.check_output(["df", "/"])
             dev, size, used, avail, percent, mountpoint = df_output.split("\n")[1].split()
 
-            cursor.execute("INSERT INTO system_data(soc_temperature, wlan0_link_quality, wlan0_signal_level, storage_total_size, storage_used, storage_avail, data_point_id) VALUES (?, ?);", (soc_temperature, link_quality, link_signal, int(size), int(used), int(avail), data_point_id));
+            cursor.execute("INSERT INTO system_data(soc_temperature, wlan0_link_quality, wlan0_signal_level, storage_total_size, storage_used, storage_avail, data_point_id) VALUES (?, ?, ?, ?, ?, ?, ?);", (soc_temperature, link_quality, link_signal, int(size), int(used), int(avail), data_point_id));
             print("    SOC Temperature:    %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
             print("    wlan0 Link Quality: %0.2f%%" % link_quality)
             print("    wlan0 Signal Level: %d dBm" % link_signal)

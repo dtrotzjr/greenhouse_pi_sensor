@@ -74,28 +74,29 @@
       <file leaf-file-name="sense_and_record.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sense_and_record.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+            <state relative-caret-position="465">
+              <caret line="212" column="200" selection-start-line="212" selection-start-column="200" selection-end-line="212" selection-end-column="200" />
               <folding>
-                <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-                <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-                <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-                <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-                <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-                <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-                <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-                <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-                <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-                <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-                <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-                <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-                <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-                <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-                <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-                <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-                <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-                <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-                <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+                <element signature="e#43#80#0" expanded="true" />
+                <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+                <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+                <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+                <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+                <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+                <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+                <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+                <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+                <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+                <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+                <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+                <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+                <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+                <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+                <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+                <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+                <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+                <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+                <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
               </folding>
             </state>
           </provider>
@@ -558,25 +559,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -622,25 +624,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -686,25 +689,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -750,25 +754,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -814,25 +819,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -842,25 +848,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -878,25 +885,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -908,25 +916,26 @@
         <state relative-caret-position="216">
           <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -938,25 +947,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
@@ -1015,28 +1025,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sense_and_record.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="465">
+          <caret line="212" column="200" selection-start-line="212" selection-start-column="200" selection-end-line="212" selection-end-column="200" />
           <folding>
-            <marker date="1464555202000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
-            <marker date="1464555202000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
-            <marker date="1464555202000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
-            <marker date="1464555202000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
-            <marker date="1464555202000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
-            <marker date="1464555202000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
-            <marker date="1464555202000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
-            <marker date="1464555202000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
-            <marker date="1464555202000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
-            <marker date="1464555202000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
-            <marker date="1464555202000" expanded="true" signature="10165:10323" placeholder="INSERT INTO system_data... " />
-            <marker date="1464555202000" expanded="true" signature="11318:11379" placeholder="INSERT INTO image_data... " />
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1464555268000" expanded="true" signature="1958:1985" placeholder="PRAGMA encod... " />
+            <marker date="1464555268000" expanded="true" signature="2016:2161" placeholder="CREATE TABLE... data_points" />
+            <marker date="1464555268000" expanded="true" signature="2191:2281" placeholder="CREATE INDEX... index_data_points_on_timestamp" />
+            <marker date="1464555268000" expanded="true" signature="2312:2487" placeholder="CREATE TABLE... sensor_data" />
+            <marker date="1464555268000" expanded="true" signature="2517:2615" placeholder="CREATE INDEX... index_sensor_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="2646:2912" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="2942:3040" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3071:3202" placeholder="CREATE TABLE... image_data" />
+            <marker date="1464555268000" expanded="true" signature="3232:3328" placeholder="CREATE INDEX... index_image_data_on_data_point_id" />
+            <marker date="1464555268000" expanded="true" signature="3511:3586" placeholder="CREATE TABLE... schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3616:3711" placeholder="CREATE UNIQU... unique_schema_migrations" />
+            <marker date="1464555268000" expanded="true" signature="3758:3825" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="3927:3994" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4096:4163" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="4265:4332" placeholder="INSERT INTO &quot;schema_migrations&quot;... " />
+            <marker date="1464555268000" expanded="true" signature="5890:5935" placeholder="INSERT INTO data_points... " />
+            <marker date="1464555268000" expanded="true" signature="8751:8843" placeholder="INSERT INTO sensor_data... " />
+            <marker date="1464555268000" expanded="true" signature="10165:10338" placeholder="INSERT INTO system_data... " />
+            <marker date="1464555268000" expanded="true" signature="11333:11394" placeholder="INSERT INTO image_data... " />
           </folding>
         </state>
       </provider>
