@@ -90,7 +90,8 @@ class SenseAndRecord:
             self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529191804)')
         except sqlite3.IntegrityError:
             pass
-
+        
+        self._db.commit()
         self._db.close()
 
     def _initialize_camera(self):
