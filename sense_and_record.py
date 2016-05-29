@@ -214,7 +214,7 @@ class SenseAndRecord:
             print("    SOC Temperature:    %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
             print("    wlan0 Link Quality: %0.2f%%" % link_quality)
             print("    wlan0 Signal Level: %d dBm" % link_signal)
-            print("    Storage Used:       %0.1f%%" % float(used)/float(size))
+            print("    Storage Used:       %0.1f%%" % (100.0*(float(used)/float(size))))
             print("." * 80)
         except IOError:
             print("WARNING: Unable to open system temperature file.")
