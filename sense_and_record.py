@@ -117,13 +117,13 @@ class SenseAndRecord:
                 if time_since_last_weather_sensed >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_sensor_readings) or time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
                     cursor = self._db.cursor()
                     cursor.execute("INSERT INTO data_points(timestamp) VALUES (?)", (timestamp,));
-
+                    data_point_id = cursor.lastrowid
                     # TODO: Try to align the image time with half hour bounaries
-                    self._sense_weather(cursor, cursor.lastrowid)
+                    self._sense_weather(cursor, data_point_id)
 
                     if time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
                         # TODO: Try to align the image time with half hour bounaries
-                        self._acquire_image(cursor, cursor.lastrowid, timestamp)
+                        self._acquire_image(cursor, data_point_id, timestamp)
                     else:
                         print("Next camera image will be taken in %ldm...\n" % int(((SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions) - time_since_last_image_taken) / SenseAndRecord.SECONDS_IN_MINUTE))
 
