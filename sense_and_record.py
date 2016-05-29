@@ -6,6 +6,7 @@ import time
 import sqlite3
 import os
 import datetime
+import subprocess
 import picamera
 import json
 import sys
@@ -63,7 +64,7 @@ class SenseAndRecord:
         self._db.execute('CREATE TABLE IF NOT EXISTS "sensor_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "sensor_id" integer, "temperature" float, "humidity" float, "data_point_id" integer);')
         self._db.execute('CREATE INDEX IF NOT EXISTS "index_sensor_data_on_data_point_id" ON "sensor_data" ("data_point_id");')
 
-        self._db.execute('CREATE TABLE IF NOT EXISTS "system_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soc_temperature" float, "data_point_id" integer);')
+        self._db.execute('CREATE TABLE IF NOT EXISTS "system_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soc_temperature" float, wlan0_link_quality float, wlan0_signal_level integer, storage_total_size integer,storage_used integer, storage_avail integer, "data_point_id" integer);')
         self._db.execute('CREATE INDEX IF NOT EXISTS "index_system_data_on_data_point_id" ON "system_data" ("data_point_id");')
 
         self._db.execute('CREATE TABLE IF NOT EXISTS "image_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" text, "data_point_id" integer);')
@@ -128,7 +129,7 @@ class SenseAndRecord:
                     # TODO: Try to align the image time with half hour bounaries
                     self._sense_weather(cursor, data_point_id)
 
-                    self._get_system_data(cursor,data_point_id,timestamp)
+                    self._get_system_data(cursor,data_point_id)
 
                     if time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
                         # TODO: Try to align the image time with half hour bounaries
@@ -189,12 +190,26 @@ class SenseAndRecord:
                 raise SenseAndRecord.SensorException(bus)
         return (temp_c, humidity)
 
-    def _get_system_data(self, cursor, data_point_id, timestamp):
+    def _get_system_data(self, cursor, data_point_id):
         try:
+            # Get SOC Temp
             system_temp_file = open("/sys/class/thermal/thermal_zone0/temp", "r")
-            temperature_data = system_temp_file.readline()
+            temperature_data_string = system_temp_file.readline()
             soc_temperature = float(temperature_data_string)/1000.0
-            cursor.execute("INSERT INTO system_data(soc_temperature, data_point_id) VALUES (?, ?);", (soc_temperature, data_point_id));
+            # Get Wifi Info
+            iwconfig_output = subprocess.check_output(["iwconfig", "wlan0"])
+            link_quality_match = re.match(r'.*Link Quality=([0-9]{,3}/[0-9]{,3})', iwconfig_output, re.MULTILINE | re.DOTALL)
+            link_quality_string = link_quality_match.group(1) # Gives value as x/y
+            num, den = link_quality_string.split("/")
+            link_quality = float(num)/float(den)
+            link_signal_match = re.match(r'.*Signal level=(-?[0-9]{,3})\s*dBm', iwconfig_output, re.MULTILINE | re.DOTALL)
+            link_signal_string = link_signal_match.group(1)
+            link_signal = int(link_signal_string)
+            # Disk Stats
+            df_output = subprocess.check_output(["df", "/"])
+            dev, size, used, avail, percent, mountpoint = df_output.split("\n")[1].split()
+
+            cursor.execute("INSERT INTO system_data(soc_temperature, wlan0_link_quality, wlan0_signal_level, storage_total_size, storage_used, storage_avail, data_point_id) VALUES (?, ?);", (soc_temperature, link_quality, link_signal, size, used, avail, data_point_id));
             print("    SOC Temperature: %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
             print("." * 80)
         except IOError:
