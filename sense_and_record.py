@@ -7,6 +7,7 @@ import sqlite3
 import os
 import datetime
 import subprocess
+import re
 import picamera
 import json
 import sys
