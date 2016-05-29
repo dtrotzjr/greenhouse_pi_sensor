@@ -182,8 +182,8 @@ class SenseAndRecord:
             # Grab sensor info from that bus
             temp_c, humidity, crc_check = self._am2315.sense()
             if crc_check == 1:
-                print("    Temperature:     %0.1f°F" % self._celsius_to_fahrenheit(temp_c))
-                print("    Humidity:        %0.1f%%" % humidity)
+                print("    Temperature:        %0.1f°F" % self._celsius_to_fahrenheit(temp_c))
+                print("    Humidity:           %0.1f%%" % humidity)
                 print("." * 80)
                 cursor.execute("INSERT INTO sensor_data(sensor_id, temperature, humidity, data_point_id) VALUES (?, ?, ?, ?)", (bus, temp_c, humidity, data_point_id));
             else:
@@ -209,8 +209,11 @@ class SenseAndRecord:
             df_output = subprocess.check_output(["df", "/"])
             dev, size, used, avail, percent, mountpoint = df_output.split("\n")[1].split()
 
-            cursor.execute("INSERT INTO system_data(soc_temperature, wlan0_link_quality, wlan0_signal_level, storage_total_size, storage_used, storage_avail, data_point_id) VALUES (?, ?);", (soc_temperature, link_quality, link_signal, size, used, avail, data_point_id));
-            print("    SOC Temperature: %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
+            cursor.execute("INSERT INTO system_data(soc_temperature, wlan0_link_quality, wlan0_signal_level, storage_total_size, storage_used, storage_avail, data_point_id) VALUES (?, ?);", (soc_temperature, link_quality, link_signal, int(size), int(used), int(avail), data_point_id));
+            print("    SOC Temperature:    %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
+            print("    wlan0 Link Quality: %0.2f%%" % link_quality)
+            print("    wlan0 Signal Level: %d dBm" % link_signal)
+            print("    Storage Used:       %0.1f%%" % float(used)/float(size))
             print("." * 80)
         except IOError:
             print("WARNING: Unable to open system temperature file.")
@@ -224,11 +227,11 @@ class SenseAndRecord:
             filename = '%s/imgs/img_%02d_%s.jpg' % (self._output_dir, timestamp, prefix)
             self._camera.capture_sequence([filename])
             cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
-            print("    [OK]\n")
+            print("           [OK]\n")
             print("." * 80)
             self._last_image_taken = time.mktime(time.localtime())
         except Exception as e:
-            print("    [FAILED]\n")
+            print("           [FAILED]\n")
             print("CRITICAL: Camera Read Error - ", e)
             print("." * 80)
 
