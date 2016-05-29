@@ -154,7 +154,7 @@ class SenseAndRecord:
     def _sense_weather(self, cursor, data_point_id):
         print("*" * 80)
         print("%d - %s" % (data_point_id, time.strftime("%m/%d/%Y %H:%M:%S")))
-        print("Reading Sensors...")
+        print("Reading Sensors...\n")
         try:
             print("Internal Sensor:")
             self._sense_weather_on_bus(cursor, data_point_id, TCA9545.TCA9545_CONFIG_BUS0)
@@ -170,7 +170,6 @@ class SenseAndRecord:
             print("CRITICAL: External Weather Sensor Failed to Read.")
         except Exception as e:
             print("CRITICAL: I2C Bus Read Error - ", e)
-        print()
 
         self._last_weather_sensed = time.mktime(time.localtime())
 
