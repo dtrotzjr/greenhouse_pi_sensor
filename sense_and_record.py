@@ -55,18 +55,23 @@ class SenseAndRecord:
 
     def _initialize_database(self):
         self._db = sqlite3.connect("%s/greenhouse_data.sqlite" % self._output_dir)
-        self._db.execute("PRAGMA encoding = \"UTF-8\";")
+        self._db.execute('PRAGMA encoding = \"UTF-8\";')
 
-        self._db.execute("CREATE TABLE IF NOT EXISTS data_point (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp INTEGER, synchronized INTEGER DEFAULT 0)")
-        self._db.execute("CREATE INDEX IF NOT EXISTS data_point_timestamp_idx ON data_point(timestamp)")
+        self._db.execute('CREATE TABLE IF NOT EXISTS "data_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer, "synchronized" integer DEFAULT 0);')
+        self._db.execute('CREATE INDEX IF NOT EXISTS "index_data_points_on_timestamp" ON "data_points" ("timestamp");')
 
-        self._db.execute("CREATE TABLE IF NOT EXISTS data_point_sensor_data (id INTEGER PRIMARY KEY, data_point_id INTEGER REFERENCES data_point(id) ON DELETE CASCADE, sensor_data_id INTEGER REFERENCES sensor_data(id) ON DELETE NO ACTION)")
-        self._db.execute("CREATE INDEX IF NOT EXISTS data_point_sensor_data_lhs_idx ON data_point_sensor_data(data_point_id)")
-        self._db.execute("CREATE INDEX IF NOT EXISTS data_point_sensor_data_rhs_idx ON data_point_sensor_data(sensor_data_id)")
+        self._db.execute('CREATE TABLE IF NOT EXISTS "sensor_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "sensor_id" integer, "temperature" float, "humidity" float, "data_point_id" integer);')
+        self._db.execute('CREATE INDEX IF NOT EXISTS "index_sensor_data_on_data_point_id" ON "sensor_data" ("data_point_id");')
 
-        self._db.execute("CREATE TABLE IF NOT EXISTS sensor_data (id INTEGER PRIMARY KEY, sensor_id INTEGER, temperature_c REAL, humidity REAL)")
-
-        self._db.execute("CREATE TABLE IF NOT EXISTS image_data (id INTEGER PRIMARY KEY, filename TEXT, data_point_id INTEGER REFERENCES data_point(id) ON DELETE CASCADE)")
+        self._db.execute('CREATE TABLE IF NOT EXISTS "image_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" text, "data_point_id" integer);')
+        self._db.execute('CREATE INDEX IF NOT EXISTS "index_image_data_on_data_point_id" ON "image_data" ("data_point_id");')
+        # Rails Migration data. In the event this is run before rails migrations are run we need to let rails know we
+        # are already setup for it
+        self._db.execute('CREATE TABLE IF NOT EXISTS "schema_migrations" ("version" varchar NOT NULL);')
+        self._db.execute('CREATE UNIQUE INDEX IF NOT EXISTS "unique_schema_migrations" ON "schema_migrations" ("version");')
+        self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529015914)')
+        self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020002)')
+        self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020220)')
         self._db.close()
 
 
@@ -102,7 +107,7 @@ class SenseAndRecord:
 
                 if time_since_last_weather_sensed >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_sensor_readings) or time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
                     cursor = self._db.cursor()
-                    cursor.execute("INSERT INTO data_point(timestamp) VALUES (?)", (timestamp,));
+                    cursor.execute("INSERT INTO data_points(timestamp) VALUES (?)", (timestamp,));
 
                     # TODO: Try to align the image time with half hour bounaries
                     self._sense_weather(cursor, cursor.lastrowid)
@@ -160,8 +165,7 @@ class SenseAndRecord:
                 print("    Temperature: %0.1f°F" % temp_f)
                 print("    Humidity:    %0.1f%%" % humidity)
                 print()
-                cursor.execute("INSERT INTO sensor_data(sensor_id, temperature_c, humidity) VALUES (?, ?, ?)", (bus, temp_c, humidity));
-                cursor.execute("INSERT INTO data_point_sensor_data(data_point_id, sensor_data_id) VALUES (?, ?)", (data_point_id, cursor.lastrowid));
+                cursor.execute("INSERT INTO sensor_data(sensor_id, temperature, humidity, data_point_id) VALUES (?, ?, ?, ?)", (bus, temp_c, humidity, data_point_id));
             else:
                 raise SenseAndRecord.SensorException(bus)
         return (temp_c, humidity)
