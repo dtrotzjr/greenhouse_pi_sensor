@@ -69,9 +69,18 @@ class SenseAndRecord:
         # are already setup for it
         self._db.execute('CREATE TABLE IF NOT EXISTS "schema_migrations" ("version" varchar NOT NULL);')
         self._db.execute('CREATE UNIQUE INDEX IF NOT EXISTS "unique_schema_migrations" ON "schema_migrations" ("version");')
-        self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529015914)')
-        self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020002)')
-        self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020220)')
+        try:
+            self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529015914)')
+        except sqlite3.IntegrityError:
+            pass
+        try:
+            self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020002)')
+        except sqlite3.IntegrityError:
+            pass
+        try:
+            self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020220)')
+        except sqlite3.IntegrityError:
+            pass
         self._db.close()
 
 
