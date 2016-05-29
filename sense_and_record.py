@@ -63,6 +63,9 @@ class SenseAndRecord:
         self._db.execute('CREATE TABLE IF NOT EXISTS "sensor_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "sensor_id" integer, "temperature" float, "humidity" float, "data_point_id" integer);')
         self._db.execute('CREATE INDEX IF NOT EXISTS "index_sensor_data_on_data_point_id" ON "sensor_data" ("data_point_id");')
 
+        self._db.execute('CREATE TABLE IF NOT EXISTS "system_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soc_temperature" float, "data_point_id" integer);')
+        self._db.execute('CREATE INDEX IF NOT EXISTS "index_system_data_on_data_point_id" ON "system_data" ("data_point_id");')
+
         self._db.execute('CREATE TABLE IF NOT EXISTS "image_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" text, "data_point_id" integer);')
         self._db.execute('CREATE INDEX IF NOT EXISTS "index_image_data_on_data_point_id" ON "image_data" ("data_point_id");')
         # Rails Migration data. In the event this is run before rails migrations are run we need to let rails know we
@@ -81,8 +84,12 @@ class SenseAndRecord:
             self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529020220)')
         except sqlite3.IntegrityError:
             pass
-        self._db.close()
+        try:
+            self._db.execute('INSERT INTO "schema_migrations" ("version") VALUES (20160529191804)')
+        except sqlite3.IntegrityError:
+            pass
 
+        self._db.close()
 
     def _initialize_camera(self):
         print("Initializing Camera...")
@@ -121,11 +128,15 @@ class SenseAndRecord:
                     # TODO: Try to align the image time with half hour bounaries
                     self._sense_weather(cursor, data_point_id)
 
+                    self._get_system_data(cursor,data_point_id,timestamp)
+
                     if time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
                         # TODO: Try to align the image time with half hour bounaries
                         self._acquire_image(cursor, data_point_id, timestamp)
                     else:
                         print("Next camera image will be taken in %ldm...\n" % int(((SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions) - time_since_last_image_taken) / SenseAndRecord.SECONDS_IN_MINUTE))
+
+                    print()
 
                 self._db.commit()
                 self._db.close()
@@ -170,14 +181,26 @@ class SenseAndRecord:
             # Grab sensor info from that bus
             temp_c, humidity, crc_check = self._am2315.sense()
             if crc_check == 1:
-                temp_f = temp_c * (9.0 / 5.0) + 32.0
-                print("    Temperature: %0.1f°F" % temp_f)
-                print("    Humidity:    %0.1f%%" % humidity)
-                print()
+                print("    Temperature:     %0.1f°F" % self._celsius_to_fahrenheit(temp_c))
+                print("    Humidity:        %0.1f%%" % humidity)
+                print("." * 80)
                 cursor.execute("INSERT INTO sensor_data(sensor_id, temperature, humidity, data_point_id) VALUES (?, ?, ?, ?)", (bus, temp_c, humidity, data_point_id));
             else:
                 raise SenseAndRecord.SensorException(bus)
         return (temp_c, humidity)
+
+    def _get_system_data(self, cursor, data_point_id, timestamp):
+        try:
+            system_temp_file = open("/sys/class/thermal/thermal_zone0/temp", "r")
+            temperature_data = system_temp_file.readline()
+            soc_temperature = float(temperature_data_string)/1000.0
+            cursor.execute("INSERT INTO system_data(soc_temperature, data_point_id) VALUES (?, ?);", (soc_temperature, data_point_id));
+            print("    SOC Temperature: %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
+            print("." * 80)
+        except IOError:
+            print("WARNING: Unable to open system temperature file.")
+        except Exception:
+            print("CRITICAL: Unable to insert system temperature data.")
 
     def _acquire_image(self, cursor, data_point_id, timestamp):
         try:
@@ -187,10 +210,15 @@ class SenseAndRecord:
             self._camera.capture_sequence([filename])
             cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
             print("    [OK]\n")
+            print("." * 80)
             self._last_image_taken = time.mktime(time.localtime())
         except Exception as e:
             print("    [FAILED]\n")
             print("CRITICAL: Camera Read Error - ", e)
+            print("." * 80)
+
+    def _celsius_to_fahrenheit(self, celsius):
+        return (celsius * (9.0 / 5.0) + 32.0)
 
 
 
