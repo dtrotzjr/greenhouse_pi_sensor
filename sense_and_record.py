@@ -217,8 +217,8 @@ class SenseAndRecord:
             print("." * 80)
         except IOError:
             print("WARNING: Unable to open system temperature file.")
-        except Exception:
-            print("CRITICAL: Unable to insert system temperature data.")
+        except Exception as e:
+            print("CRITICAL: Unable to insert system temperature data. ", e)
 
     def _acquire_image(self, cursor, data_point_id, timestamp):
         try:
