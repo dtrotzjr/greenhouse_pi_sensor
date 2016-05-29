@@ -229,11 +229,11 @@ class SenseAndRecord:
             filename = '%s/imgs/img_%02d_%s.jpg' % (self._output_dir, timestamp, prefix)
             self._camera.capture_sequence([filename])
             cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
-            print("       [OK]\n")
+            print("   [OK]\n")
             print("." * 80)
             self._last_image_taken = time.mktime(time.localtime())
         except Exception as e:
-            print("       [FAILED]\n")
+            print("   [FAILED]\n")
             print("CRITICAL: Camera Read Error - ", e)
             print("." * 80)
 
