@@ -102,13 +102,14 @@ class SenseAndRecord:
         # The camera requires some time to initialize
         time.sleep(2)
         self._camera.shutter_speed = self._camera.exposure_speed
-        self._camera.exposure_mode = 'off'
+        self._camera.exposure_mode = 'auto'
         g = self._camera.awb_gains
-        self._camera.awb_mode = 'off'
+        self._camera.awb_mode = 'auto'
         self._camera.awb_gains = g
         self._camera.hflip = True
         self._camera.vflip = True
-
+        time.sleep(2)
+        
     def sense_and_record(self):
         print("Starting Sense and Record v2.0")
 
