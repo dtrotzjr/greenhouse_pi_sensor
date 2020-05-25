@@ -3,9 +3,9 @@
 
 from __future__ import print_function
 import time
+from datetime import datetime
 import sqlite3
 import os
-import datetime
 import subprocess
 import re
 import picamera
@@ -13,7 +13,6 @@ import json
 import sys
 from tentacle_pi.AM2315 import AM2315
 from switchdoc import TCA9545
-from switchdoc import Test_TCA9545
 
 class SenseAndRecord:
 
@@ -23,6 +22,8 @@ class SenseAndRecord:
     HOURS_IN_DAY        = 24.0
     MINUTES_IN_DAY      = MINUTES_IN_HOUR * HOURS_IN_DAY
     SECONDS_IN_DAY      = SECONDS_IN_HOUR * HOURS_IN_DAY
+
+    CAMERA_INITIALIZE_TIME = 10.0
 
     class SensorException(Exception):
         def __init__(self, value):
@@ -47,10 +48,6 @@ class SenseAndRecord:
         self._camera = picamera.PiCamera()
         try:
             os.makedirs(self._output_dir)
-        except:
-            pass
-        try:
-            os.makedirs("%s/imgs" % self._output_dir)
         except:
             pass
         self._initialize_database()
@@ -98,18 +95,26 @@ class SenseAndRecord:
         print("Initializing Camera...")
         # Prep the camera for use
         self._camera.resolution = (3280, 2464)
-        self._camera.framerate = 30
+        self._camera.framerate = 10
         # The camera requires some time to initialize
-        time.sleep(2)
-        self._camera.shutter_speed = self._camera.exposure_speed
+        self._camera.shutter_speed = 0
         self._camera.exposure_mode = 'auto'
-        # g = self._camera.awb_gains
         self._camera.awb_mode = 'auto'
-        # self._camera.awb_gains = g
-        self._camera.hflip = True
-        self._camera.vflip = True
-        time.sleep(2)
+        self._camera.hflip = False
+        self._camera.vflip = False
+        print('Waiting %1.0fs for the camera to settle...' % SenseAndRecord.CAMERA_INITIALIZE_TIME)
+        time.sleep(SenseAndRecord.CAMERA_INITIALIZE_TIME)
         
+    def validate_mount(self):
+        valid = False
+        try:
+            with open("%s/volume_info.json" % self._config['external_share']) as file_contents:
+                share_info = json.load(file_contents)
+                valid = share_info['storage_name'] == self._config['share_validation_string']
+        except:
+            valid = False
+        return valid
+
     def sense_and_record(self):
         print("Starting Sense and Record v2.0")
 
@@ -227,8 +232,22 @@ class SenseAndRecord:
         print("Camera:")
         try:
             print("    Snapping Image...", end="")
-            prefix = time.strftime("%Y_%m_%d_%H_%M_%S")
-            filename = '%s/imgs/img_%02d_%s.jpg' % (self._output_dir, timestamp, prefix)
+            output_dir = self._output_dir
+            if self.validate_mount():
+                output_dir = self._config['external_share']
+            else:
+                print("[WARNING]: External share is not mounted properly.  Saving images locally.")
+
+            date_subfolders = datetime.utcfromtimestamp(timestamp).strftime('%Y/%m/%d')
+            friendly_timestamp = datetime.utcfromtimestamp(timestamp).strftime('%H_%M_%S')
+            images_path = '%s/%s/%s' % (output_dir, self._config['image_subfolder'], date_subfolders)
+            try:
+                os.makedirs(images_path)
+            except OSError as e:
+                pass
+            except Exception as e:
+                print(e)
+            filename = '%s/img_%02d_%s.jpg' % (images_path, timestamp, friendly_timestamp)
             self._camera.capture_sequence([filename])
             cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
             print("   [OK]\n")
