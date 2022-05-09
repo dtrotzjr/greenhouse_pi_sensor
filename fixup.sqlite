@@ -1,0 +1,11 @@
+UPDATE data_points SET id = (id + 525600) WHERE id < 100000;
+UPDATE sqlite_sequence SET seq = (SELECT MAX(id) from data_points) WHERE name = "data_points";
+UPDATE image_data SET data_point_id = (data_point_id + 525600) WHERE data_point_id < 100000;
+UPDATE image_data SET id = (id + 52560) WHERE id < 10000;
+UPDATE sqlite_sequence SET seq = (SELECT MAX(id) from image_data) WHERE name = "image_data";
+UPDATE sensor_data SET id = (id + 1051120) WHERE id < 200000;
+UPDATE sensor_data SET data_point_id = (data_point_id + 525600) WHERE data_point_id < 100000;
+UPDATE sqlite_sequence SET seq = (SELECT MAX(id) from sensor_data) WHERE name = "sensor_data";
+UPDATE system_data SET id = (id + 525600) WHERE id < 100000;
+UPDATE system_data SET data_point_id = (data_point_id + 525600) WHERE data_point_id < 100000;
+UPDATE sqlite_sequence SET seq = (SELECT MAX(id) from system_data) WHERE name = "system_data";

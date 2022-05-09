@@ -11,8 +11,8 @@ import re
 # import picamera
 import json
 import sys
-import SHT30
-import TCA9545
+from SDL_Pi_AM2315 import AM2315
+from SDL_Pi_TCA9545 import TCA9545
 
 class SenseAndRecord:
 
@@ -43,8 +43,8 @@ class SenseAndRecord:
         self._last_weather_sensed = 0
         # Prep the mux.
         # Note: This allows us to talk to up to 4 devices with the same address.
-        self._tca9545 = TCA9545.TCA9545(addr=TCA9545.TCA9545_ADDRESS, bus_enable=TCA9545.TCA9545_CONFIG_BUS0)
-        self._sht30 = SHT30.SHT30(powerpin=6)
+        self._tca9545 = TCA9545.SDL_Pi_TCA9545(addr=TCA9545.TCA9545_ADDRESS, bus_enable=TCA9545.TCA9545_CONFIG_BUS0)
+        self._am2315 = AM2315.AM2315(0x5c, "/dev/i2c-1")
         #self._camera = picamera.PiCamera()
         try:
             os.makedirs(self._output_dir)
@@ -159,8 +159,8 @@ class SenseAndRecord:
             sys.exit(125)
 
     def _sense_weather(self, cursor, data_point_id):
-        print(("*" * 80))
-        print(("%d - %s" % (data_point_id, time.strftime("%m/%d/%Y %H:%M:%S"))))
+        print("*" * 80)
+        print("%d - %s" % (data_point_id, time.strftime("%m/%d/%Y %H:%M:%S")))
         print("Reading Sensors...\n")
         try:
             print("Internal Sensor:")
@@ -168,7 +168,7 @@ class SenseAndRecord:
         except SenseAndRecord.SensorException as e:
             print("CRITICAL: Internal Weather Sensor Failed to Read.")
         except Exception as e:
-            print(("CRITICAL: I2C Bus Read Error - ", e))
+            print("CRITICAL: I2C Bus Read Error - ", e)
 
         try:
             print("External Sensor:")
@@ -176,7 +176,7 @@ class SenseAndRecord:
         except SenseAndRecord.SensorException as e:
             print("CRITICAL: External Weather Sensor Failed to Read.")
         except Exception as e:
-            print(("CRITICAL: I2C Bus Read Error - ", e))
+            print("CRITICAL: I2C Bus Read Error - ", e)
 
         self._last_weather_sensed = time.mktime(time.localtime())
 
@@ -187,14 +187,14 @@ class SenseAndRecord:
 
         if control_register & 0x0f == bus:
             # Grab sensor info from that bus
-            humidity, temp_c, crc_ch, crc_ct = self._sht30.read_humidity_temperature_crc()
-            if True:
-                print(("    Temperature:        %0.1f°F" % self._celsius_to_fahrenheit(temp_c)))
-                print(("    Humidity:           %0.1f%%" % humidity))
-                print(("." * 80))
+            humidity, temp_c, crc_check = self._am2315.read_humidity_temperature_crc()
+            if crc_check != -1:
+                print("    Temperature:        %0.1f°F" % self._celsius_to_fahrenheit(temp_c))
+                print("    Humidity:           %0.1f%%" % humidity)
+                print("." * 80)
                 cursor.execute("INSERT INTO sensor_data(sensor_id, temperature, humidity, data_point_id) VALUES (?, ?, ?, ?)", (bus, temp_c, humidity, data_point_id));
             else:
-                print(("CRC: %d %d" % crc_ch, crc_ct)) 
+                print("CRC: %d" % crc_check) 
                 raise SenseAndRecord.SensorException(bus)
         return (temp_c, humidity)
 
@@ -206,28 +206,28 @@ class SenseAndRecord:
             temperature_data_string = system_temp_file.readline()
             soc_temperature = float(temperature_data_string)/1000.0
             # Get Wifi Info
-            iwconfig_output = subprocess.check_output(["/usr/sbin/iwconfig", "wlan0"]).decode('utf8')
+            iwconfig_output = subprocess.check_output(["iwconfig", "wlan0"])
             link_quality_match = re.match(r'.*Link Quality=([0-9]{,3}/[0-9]{,3})', iwconfig_output, re.MULTILINE | re.DOTALL)
             link_quality_string = link_quality_match.group(1) # Gives value as x/y
             num, den = link_quality_string.split("/")
             link_quality = float(num)/float(den)
             link_signal_match = re.match(r'.*Signal level=(-?[0-9]{,3})\s*dBm', iwconfig_output, re.MULTILINE | re.DOTALL)
             link_signal_string = link_signal_match.group(1)
-            link_signal = 30#int(link_signal_string)
+            link_signal = int(link_signal_string)
             # Disk Stats
-            df_output = subprocess.check_output(["df", "/"]).decode('utf8')
+            df_output = subprocess.check_output(["df", "/"])
             dev, size, used, avail, percent, mountpoint = df_output.split("\n")[1].split()
 
             cursor.execute("INSERT INTO system_data(soc_temperature, wlan0_link_quality, wlan0_signal_level, storage_total_size, storage_used, storage_avail, data_point_id) VALUES (?, ?, ?, ?, ?, ?, ?);", (soc_temperature, link_quality, link_signal, int(size), int(used), int(avail), data_point_id));
-            print(("    SOC Temperature:    %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature)))
-            print(("    wlan0 Link Quality: %0.2f%%" % (100.0*link_quality)))
-            print(("    wlan0 Signal Level: %d dBm" % link_signal))
-            print(("    Storage Used:       %0.1f%%" % (100.0*(float(used)/float(size)))))
-            print(("." * 80))
-        except IOError as e:
-            print(("WARNING: Unable to open system temperature file.", e))
+            print("    SOC Temperature:    %0.1f°F" % self._celsius_to_fahrenheit(soc_temperature))
+            print("    wlan0 Link Quality: %0.2f%%" % link_quality)
+            print("    wlan0 Signal Level: %d dBm" % link_signal)
+            print("    Storage Used:       %0.1f%%" % (100.0*(float(used)/float(size))))
+            print("." * 80)
+        except IOError:
+            print("WARNING: Unable to open system temperature file.")
         except Exception as e:
-            print(("CRITICAL: Unable to insert system temperature data. ", e))
+            print("CRITICAL: Unable to insert system temperature data. ", e)
 
 #    def _acquire_image(self, cursor, data_point_id, timestamp):
 #        print("Camera:")
