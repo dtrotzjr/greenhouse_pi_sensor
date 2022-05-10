@@ -92,17 +92,17 @@ class SenseAndRecord:
         self._db.commit()
         self._db.close()
 
-   def _initialize_camera(self):
-       print("Initializing Camera...")
-       # Prep the camera for use
-       self_camera = Picamera2()
+    def _initialize_camera(self):
+        print("Initializing Camera...")
+        # Prep the camera for use
+        self_camera = Picamera2()
 
-       config = self._camera.still_configuration(raw={"size": self_camera.sensor_resolution})
-       picam2.configure(config)
-       self_camera.start()
+        config = self._camera.still_configuration(raw={"size": self_camera.sensor_resolution})
+        picam2.configure(config)
+        self_camera.start()
 
-       print('Waiting %1.0fs for the camera to settle...' % SenseAndRecord.CAMERA_INITIALIZE_TIME)
-       time.sleep(SenseAndRecord.CAMERA_INITIALIZE_TIME)
+        print('Waiting %1.0fs for the camera to settle...' % SenseAndRecord.CAMERA_INITIALIZE_TIME)
+        time.sleep(SenseAndRecord.CAMERA_INITIALIZE_TIME)
         
     def validate_mount(self):
         valid = False
