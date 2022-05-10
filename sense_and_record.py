@@ -46,7 +46,6 @@ class SenseAndRecord:
         # Note: This allows us to talk to up to 4 devices with the same address.
         self._tca9545 = TCA9545.TCA9545(addr=TCA9545.TCA9545_ADDRESS, bus_enable=TCA9545.TCA9545_CONFIG_BUS0)
         self._sht30 = SHT30.SHT30(powerpin=6)
-        #self._camera = picamera.PiCamera()
         try:
             os.makedirs(self._output_dir)
         except:
@@ -95,11 +94,11 @@ class SenseAndRecord:
     def _initialize_camera(self):
         print("Initializing Camera...")
         # Prep the camera for use
-        self_camera = Picamera2()
+        self._camera = Picamera2()
 
         config = self._camera.still_configuration(raw={"size": self._camera.sensor_resolution})
-        picam2.configure(config)
-        self_camera.start()
+        self._camera.configure(config)
+        self._camera.start()
 
         print('Waiting %1.0fs for the camera to settle...' % SenseAndRecord.CAMERA_INITIALIZE_TIME)
         time.sleep(SenseAndRecord.CAMERA_INITIALIZE_TIME)
