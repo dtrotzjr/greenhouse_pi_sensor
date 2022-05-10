@@ -97,7 +97,7 @@ class SenseAndRecord:
         # Prep the camera for use
         self_camera = Picamera2()
 
-        config = self._camera.still_configuration(raw={"size": self_camera.sensor_resolution})
+        config = self._camera.still_configuration(raw={"size": self._camera.sensor_resolution})
         picam2.configure(config)
         self_camera.start()
 
