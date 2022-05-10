@@ -8,7 +8,8 @@ import sqlite3
 import os
 import subprocess
 import re
-# import picamera
+import time
+from picamera2.picamera2 import Picamera2
 import json
 import sys
 import SHT30
@@ -23,7 +24,7 @@ class SenseAndRecord:
     MINUTES_IN_DAY      = MINUTES_IN_HOUR * HOURS_IN_DAY
     SECONDS_IN_DAY      = SECONDS_IN_HOUR * HOURS_IN_DAY
 
-    CAMERA_INITIALIZE_TIME = 10.0
+    CAMERA_INITIALIZE_TIME = 2.0
 
     class SensorException(Exception):
         def __init__(self, value):
@@ -91,19 +92,17 @@ class SenseAndRecord:
         self._db.commit()
         self._db.close()
 
-#    def _initialize_camera(self):
-#        print("Initializing Camera...")
-#        # Prep the camera for use
-#        self._camera.resolution = (3280, 2464)
-#        self._camera.framerate = 10
-#        # The camera requires some time to initialize
-#        self._camera.shutter_speed = 0
-#        self._camera.exposure_mode = 'auto'
-#        self._camera.awb_mode = 'auto'
-#        self._camera.hflip = False
-#        self._camera.vflip = False
-#        print('Waiting %1.0fs for the camera to settle...' % SenseAndRecord.CAMERA_INITIALIZE_TIME)
-#        time.sleep(SenseAndRecord.CAMERA_INITIALIZE_TIME)
+   def _initialize_camera(self):
+       print("Initializing Camera...")
+       # Prep the camera for use
+       self_camera = Picamera2()
+
+       config = self._camera.still_configuration(raw={"size": self_camera.sensor_resolution})
+       picam2.configure(config)
+       self_camera.start()
+
+       print('Waiting %1.0fs for the camera to settle...' % SenseAndRecord.CAMERA_INITIALIZE_TIME)
+       time.sleep(SenseAndRecord.CAMERA_INITIALIZE_TIME)
         
     def validate_mount(self):
         valid = False
@@ -119,7 +118,7 @@ class SenseAndRecord:
         print("Starting Sense and Record v2.0")
 
         if self._config['output_dir']:
-#            self._initialize_camera()
+           self._initialize_camera()
 
             while True:
                 self._db = sqlite3.connect("%s/greenhouse_data.sqlite" % self._output_dir)
@@ -139,11 +138,11 @@ class SenseAndRecord:
 
                     self._get_system_data(cursor,data_point_id)
 
- #                   if time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
- #                       # TODO: Try to align the image time with half hour bounaries
- #                       self._acquire_image(cursor, data_point_id, timestamp)
- #                   else:
- #                       print("Next camera image will be taken in %ldm...\n" % int(((SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions) - time_since_last_image_taken) / SenseAndRecord.SECONDS_IN_MINUTE))
+                   if time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
+                       # TODO: Try to align the image time with half hour bounaries
+                       self._acquire_image(cursor, data_point_id, timestamp)
+                   else:
+                       print("Next camera image will be taken in %ldm...\n" % int(((SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions) - time_since_last_image_taken) / SenseAndRecord.SECONDS_IN_MINUTE))
 
                     print()
 
@@ -229,35 +228,35 @@ class SenseAndRecord:
         except Exception as e:
             print(("CRITICAL: Unable to insert system temperature data. ", e))
 
-#    def _acquire_image(self, cursor, data_point_id, timestamp):
-#        print("Camera:")
-#        try:
-#            print("    Snapping Image...", end="")
-#            output_dir = self._output_dir
-#            if self.validate_mount():
-#                output_dir = self._config['external_share']
-#            else:
-#                print("[WARNING]: External share is not mounted properly.  Saving images locally.")
-#
-#            date_subfolders = datetime.fromtimestamp(timestamp).strftime('%Y/%m/%d')
-#            friendly_timestamp = datetime.fromtimestamp(timestamp).strftime('%H_%M_%S')
-#            images_path = '%s/%s/%s' % (output_dir, self._config['image_subfolder'], date_subfolders)
-#            try:
-#                os.makedirs(images_path)
-#            except OSError as e:
-#                pass
-#            except Exception as e:
-#                print(e)
-#            filename = '%s/img_%02d_%s.jpg' % (images_path, timestamp, friendly_timestamp)
-#            self._camera.capture_sequence([filename])
-#            cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
-#            print("   [OK]\n")
-#            print("." * 80)
-#            self._last_image_taken = time.mktime(time.localtime())
-#        except Exception as e:
-#            print("   [FAILED]\n")
-#            print("CRITICAL: Camera Read Error - ", e)
-#            print("." * 80)
+   def _acquire_image(self, cursor, data_point_id, timestamp):
+       print("Camera:")
+       try:
+           print("    Snapping Image...", end="")
+           output_dir = self._output_dir
+           if self.validate_mount():
+               output_dir = self._config['external_share']
+           else:
+               print("[WARNING]: External share is not mounted properly.  Saving images locally.")
+
+           date_subfolders = datetime.fromtimestamp(timestamp).strftime('%Y/%m/%d')
+           friendly_timestamp = datetime.fromtimestamp(timestamp).strftime('%H_%M_%S')
+           images_path = '%s/%s/%s' % (output_dir, self._config['image_subfolder'], date_subfolders)
+           try:
+               os.makedirs(images_path)
+           except OSError as e:
+               pass
+           except Exception as e:
+               print(e)
+           filename = '%s/img_%02d_%s.jpg' % (images_path, timestamp, friendly_timestamp)
+           self._camera.capture_file([filename])
+           cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
+           print("   [OK]\n")
+           print("." * 80)
+           self._last_image_taken = time.mktime(time.localtime())
+       except Exception as e:
+           print("   [FAILED]\n")
+           print("CRITICAL: Camera Read Error - ", e)
+           print("." * 80)
 
     def _celsius_to_fahrenheit(self, celsius):
         return (celsius * (9.0 / 5.0) + 32.0)
@@ -271,18 +270,3 @@ if len(sys.argv) < 2:
 
 snr = SenseAndRecord(sys.argv[1])
 snr.sense_and_record()
-#!/usr/bin/python
-import time
-from picamera2.picamera2 import Picamera2
-
-picam2 = Picamera2()
-
-config = picam2.still_configuration(raw={"size": picam2.sensor_resolution})
-picam2.configure(config)
-
-picam2.start()
-time.sleep(2)
-
-picam2.capture_file("test.jpg")
-
-picam2.close()
