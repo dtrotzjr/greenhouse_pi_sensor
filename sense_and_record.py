@@ -271,3 +271,18 @@ if len(sys.argv) < 2:
 
 snr = SenseAndRecord(sys.argv[1])
 snr.sense_and_record()
+#!/usr/bin/python
+import time
+from picamera2.picamera2 import Picamera2
+
+picam2 = Picamera2()
+
+config = picam2.still_configuration(raw={"size": picam2.sensor_resolution})
+picam2.configure(config)
+
+picam2.start()
+time.sleep(2)
+
+picam2.capture_file("test.jpg")
+
+picam2.close()
