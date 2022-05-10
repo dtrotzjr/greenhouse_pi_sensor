@@ -119,40 +119,38 @@ class SenseAndRecord:
 
         if self._config['output_dir']:
            self._initialize_camera()
-
-            while True:
-                self._db = sqlite3.connect("%s/greenhouse_data.sqlite" % self._output_dir)
-
-                can_print_next_image_message = False
-                timestamp = time.mktime(time.localtime())
-
-                time_since_last_weather_sensed = time.mktime(time.localtime()) - self._last_weather_sensed
-                time_since_last_image_taken = time.mktime(time.localtime()) - self._last_image_taken
-
-                if time_since_last_weather_sensed >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_sensor_readings) or time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
-                    cursor = self._db.cursor()
-                    cursor.execute("INSERT INTO data_points(timestamp) VALUES (?)", (timestamp,));
-                    data_point_id = cursor.lastrowid
-                    # TODO: Try to align the image time with half hour bounaries
-                    self._sense_weather(cursor, data_point_id)
-
-                    self._get_system_data(cursor,data_point_id)
+           while True:
+               self._db = sqlite3.connect("%s/greenhouse_data.sqlite" % self._output_dir)
+               
+               can_print_next_image_message = False
+               timestamp = time.mktime(time.localtime())
+               
+               time_since_last_weather_sensed = time.mktime(time.localtime()) - self._last_weather_sensed
+               time_since_last_image_taken = time.mktime(time.localtime()) - self._last_image_taken
+               
+               if time_since_last_weather_sensed >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_sensor_readings) or time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
+                   cursor = self._db.cursor()
+                   cursor.execute("INSERT INTO data_points(timestamp) VALUES (?)", (timestamp,));
+                   data_point_id = cursor.lastrowid
+                   # TODO: Try to align the image time with half hour bounaries
+                   self._sense_weather(cursor, data_point_id)
+                   
+                   self._get_system_data(cursor,data_point_id)
 
                    if time_since_last_image_taken >= (SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions):
                        # TODO: Try to align the image time with half hour bounaries
                        self._acquire_image(cursor, data_point_id, timestamp)
                    else:
                        print("Next camera image will be taken in %ldm...\n" % int(((SenseAndRecord.SECONDS_IN_MINUTE * self._minutes_between_image_acquisitions) - time_since_last_image_taken) / SenseAndRecord.SECONDS_IN_MINUTE))
+                       
+                   print()
 
-                    print()
+               self._db.commit()
+               self._db.close()
 
-                self._db.commit()
-                self._db.close()
-
-                delta = time.mktime(time.localtime()) - timestamp
-                sleep_len = (5.0 - delta) if (delta <= 5.0) else 0.0
-                time.sleep(sleep_len)
-
+               delta = time.mktime(time.localtime()) - timestamp
+               sleep_len = (5.0 - delta) if (delta <= 5.0) else 0.0
+               time.sleep(sleep_len)
         else:
             print("Missing 'output_dir' in config file!")
             sys.exit(125)
