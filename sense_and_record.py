@@ -226,7 +226,7 @@ class SenseAndRecord:
         except Exception as e:
             print(("CRITICAL: Unable to insert system temperature data. ", e))
 
-   def _acquire_image(self, cursor, data_point_id, timestamp):
+    def _acquire_image(self, cursor, data_point_id, timestamp):
        print("Camera:")
        try:
            print("    Snapping Image...", end="")
