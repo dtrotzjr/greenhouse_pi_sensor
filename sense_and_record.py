@@ -95,7 +95,7 @@ class SenseAndRecord:
         # Prep the camera for use
         self._camera = Picamera2()
 
-        config = self._camera.still_configuration(raw={"size": self._camera.sensor_resolution})
+        config = self._camera.create_still_configuration()
         self._camera.configure(config)
         self._camera.start()
 
@@ -244,7 +244,7 @@ class SenseAndRecord:
            except Exception as e:
                print(e)
            filename = '%s/img_%02d_%s.jpg' % (images_path, timestamp, friendly_timestamp)
-           self._camera.capture_file([filename])
+           self._camera.capture_file(filename)
            cursor.execute("INSERT INTO image_data(filename, data_point_id) VALUES (?, ?);", (filename, data_point_id));
            print("   [OK]\n")
            print("." * 80)
